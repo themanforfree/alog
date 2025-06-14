@@ -1,6 +1,7 @@
 pub mod bubble;
 pub mod insertion;
 pub mod selection;
+pub mod shell;
 
 #[cfg(test)]
 mod tests {
@@ -11,6 +12,7 @@ mod tests {
         sort_fns.insert("insertion_sort", super::insertion::insertion_sort);
         sort_fns.insert("bubble_sort", super::bubble::bubble_sort);
         sort_fns.insert("selection_sort", super::selection::selection_sort);
+        sort_fns.insert("shell_sort", super::shell::shell_sort);
         sort_fns
     }
 
