@@ -1,4 +1,5 @@
 pub mod bubble;
+pub mod bucket;
 pub mod counting;
 pub mod heap;
 pub mod insertion;

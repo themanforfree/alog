@@ -4,21 +4,16 @@ use crate::sort::Sort;
 pub struct CountingSort;
 
 pub trait CountingSortHelper: Ord {
-    fn min_value() -> Self;
-    fn max_value() -> Self;
+    const MIN: Self;
+    const MAX: Self;
     fn calc_len(max: Self, min: Self) -> usize;
     fn calc_index(value: Self, min: Self) -> usize;
     fn calc_value(index: usize, min: Self) -> Self;
 }
 
 impl CountingSortHelper for i32 {
-    fn min_value() -> Self {
-        i32::MIN
-    }
-
-    fn max_value() -> Self {
-        i32::MAX
-    }
+    const MIN: Self = i32::MIN;
+    const MAX: Self = i32::MAX;
 
     fn calc_len(max: Self, min: Self) -> usize {
         (max - min + 1) as usize
@@ -40,9 +35,7 @@ impl<T: Ord + CountingSortHelper + Copy> Sort<T> for CountingSort {
         }
         let (min, max) = arr
             .iter()
-            .fold((T::max_value(), T::min_value()), |(min, max), x| {
-                (min.min(*x), max.max(*x))
-            });
+            .fold((T::MAX, T::MIN), |(min, max), x| (min.min(*x), max.max(*x)));
         let len = T::calc_len(max, min);
         let mut count = vec![0; len];
         for n in &arr {
