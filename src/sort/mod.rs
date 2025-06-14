@@ -5,6 +5,7 @@ pub mod heap;
 pub mod insertion;
 pub mod merge;
 pub mod quick;
+pub mod radix;
 pub mod selection;
 pub mod shell;
 
@@ -20,6 +21,9 @@ mod tests {
         let arr = vec![5, 2, 9, 1, 5, 6];
         let sorted = sorter.sort(arr);
         assert_eq!(sorted, [1, 2, 5, 5, 6, 9]);
+        let arr = vec![692, 924, 969, 503, 871, 704, 542, 436];
+        let sorted = sorter.sort(arr);
+        assert_eq!(sorted, [436, 503, 542, 692, 704, 871, 924, 969]);
     }
 
     pub fn test_sort_empty(sorter: impl Sort<i32>) {
