@@ -3,8 +3,8 @@ use crate::sort::Sort;
 #[derive(Debug, Clone, Copy)]
 pub struct ShellSort;
 
-impl Sort for ShellSort {
-    fn sort<T: Ord + Copy>(&self, mut arr: Vec<T>) -> Vec<T> {
+impl<T: Ord + Copy> Sort<T> for ShellSort {
+    fn sort(&self, mut arr: Vec<T>) -> Vec<T> {
         let len = arr.len();
         let mut gap = len / 2;
 

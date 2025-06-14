@@ -3,8 +3,8 @@ use crate::sort::Sort;
 #[derive(Debug, Clone, Copy)]
 pub struct MergeSort;
 
-impl Sort for MergeSort {
-    fn sort<T: Ord + Copy>(&self, arr: Vec<T>) -> Vec<T> {
+impl<T: Ord + Copy> Sort<T> for MergeSort {
+    fn sort(&self, arr: Vec<T>) -> Vec<T> {
         if arr.len() <= 1 {
             return arr;
         }

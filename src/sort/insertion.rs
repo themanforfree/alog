@@ -3,8 +3,9 @@ use crate::sort::Sort;
 #[derive(Debug, Clone, Copy)]
 pub struct InsertionSort;
 
-impl Sort for InsertionSort {
-    fn sort<T: Ord + Copy>(&self, mut arr: Vec<T>) -> Vec<T> {
+impl<T: Ord + Copy> Sort<T> for InsertionSort {
+    // TODO: maybe remove Copy trait bound?
+    fn sort(&self, mut arr: Vec<T>) -> Vec<T> {
         let len = arr.len();
         for i in 1..len {
             let key = arr[i];

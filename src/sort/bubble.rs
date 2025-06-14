@@ -3,8 +3,8 @@ use crate::sort::Sort;
 #[derive(Debug, Clone, Copy)]
 pub struct BubbleSort;
 
-impl Sort for BubbleSort {
-    fn sort<T: Ord + Copy>(&self, mut arr: Vec<T>) -> Vec<T> {
+impl<T: Ord> Sort<T> for BubbleSort {
+    fn sort(&self, mut arr: Vec<T>) -> Vec<T> {
         for i in 0..arr.len() {
             let mut swapped = false;
             for j in 0..arr.len() - 1 - i {

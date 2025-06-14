@@ -3,8 +3,8 @@ use crate::sort::Sort;
 #[derive(Debug, Clone, Copy)]
 pub struct SelectionSort;
 
-impl Sort for SelectionSort {
-    fn sort<T: Ord + Copy>(&self, mut arr: Vec<T>) -> Vec<T> {
+impl<T: Ord> Sort<T> for SelectionSort {
+    fn sort(&self, mut arr: Vec<T>) -> Vec<T> {
         let len = arr.len();
         for i in 0..len {
             let mut min_index = i;

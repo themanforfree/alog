@@ -3,8 +3,8 @@ use crate::sort::Sort;
 #[derive(Debug, Clone, Copy)]
 pub struct QuickSort;
 
-impl Sort for QuickSort {
-    fn sort<T: Ord + Copy>(&self, mut arr: Vec<T>) -> Vec<T> {
+impl<T: Ord + Copy> Sort<T> for QuickSort {
+    fn sort(&self, mut arr: Vec<T>) -> Vec<T> {
         if arr.is_empty() {
             return arr;
         }

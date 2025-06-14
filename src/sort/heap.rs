@@ -5,8 +5,8 @@ use crate::sort::Sort;
 #[derive(Debug, Clone, Copy)]
 pub struct HeapSort;
 
-impl Sort for HeapSort {
-    fn sort<T: Ord + Copy>(&self, arr: Vec<T>) -> Vec<T> {
+impl<T: Ord + Copy> Sort<T> for HeapSort {
+    fn sort(&self, arr: Vec<T>) -> Vec<T> {
         let mut heap = BinaryHeap::new(); // TODO: implement a custom heap
         for item in arr {
             heap.push(Reverse(item));
